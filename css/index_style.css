@@ -1,0 +1,35 @@
+body {
+
+ 
+    background-image: url(../images/Nurse-Bust-Crossed-Arms-for-web.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+
+
+
+
+
+.footer
+{
+    position: absolute;
+    bottom: 0px;
+    left: 500px;
+    color: gray;
+}
+
+.mail
+{
+    font-size: 24px;
+  
+}
+#password
+{
+    width: 300px;
+}
+#username
+{
+     width: 300px;
+}

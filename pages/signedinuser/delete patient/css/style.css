@@ -1,0 +1,11 @@
+body {
+  margin: 0px;
+  text-align: center;
+    background-image: url(../images/Nurse-Bust-Crossed-Arms-for-web.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.nav
+{
+    background-color: rgba(0, 0, 0, 0.5);
+}
