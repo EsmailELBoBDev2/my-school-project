@@ -11,6 +11,15 @@ firebase.initializeApp(config);
 
 let dataRef = firebase.database().ref("data");
   
+dataRef.on("child_added", snap => {
+  let name = snap.child("name").val();
+  let medicName = snap.child("medicName").val();
+  let medicTime1 = snap.child("medicTime1").val();
+  let medicTime2 = snap.child("medicTime2").val();
+  let notes = snap.child("notes").val(); 
+  
+  $("#name2").append("<tr><td>" + "الملاحظات: " + notes + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + medicTime1 + "</td><td>" + medicTime2 + " :الميعاد"  + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + "إسم الدواء: " + medicName + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + "الإسم: " + name + "<br>");
+})
   
   document.getElementById("patiatint").addEventListener("submit", submitform);
   
@@ -41,24 +50,24 @@ let dataRef = firebase.database().ref("data");
   });
   }
   
-  
+
   
   
   
             function amTime() {
               let amTime = document.getElementById('am');
               if (amTime.checked == true) {
-                document.getElementById("medic-time2").value = "AM";
+                document.getElementById("medic-time1").value = "صباحاً";
               }
               if (amTime.checked == false) {
-                document.getElementById("medic-time2").value = "";
+                document.getElementById("medic-time1").value = "";
               }
             }
   
             function bmTime() {
               let bmTime = document.getElementById('bm');
               if (bmTime.checked == true) {
-                document.getElementById("medic-time2").value = "BM";
+                document.getElementById("medic-time1").value = "مساءاً";
               }
               if (bmTime.checked == false) {
                 document.getElementById("medic-time2").value = "";
@@ -68,120 +77,120 @@ let dataRef = firebase.database().ref("data");
             function oneTime() {
               let oneTime = document.getElementById('one');
               if (oneTime.checked == true) {
-                document.getElementById("medic-time1").value = "1:00";
+                document.getElementById("medic-time2").value = "1:00";
               }
               if (oneTime.checked == false) {
-                document.getElementById("medic-time1").value = "";
+                document.getElementById("medic-time2").value = "";
               }
             }
   
             function twoTime() {
               let twoTime = document.getElementById('two');
               if (twoTime.checked == true) {
-                document.getElementById("medic-time1").value = "2:00";
+                document.getElementById("medic-time2").value = "2:00";
               }
               if (twoTime.checked == false) {
-                document.getElementById("medic-time1").value = "";
+                document.getElementById("medic-time2").value = "";
               }
             }
   
             function threeTime() {
               let threeTime = document.getElementById('three');
               if (threeTime.checked == true) {
-                document.getElementById("medic-time1").value = "3:00";
+                document.getElementById("medic-time2").value = "3:00";
               }
               if (threeTime.checked == false) {
-                document.getElementById("medic-time1").value = "";
+                document.getElementById("medic-time2").value = "";
               }
             }
   
             function fourTime() {
               let fourTime = document.getElementById('four');
               if (fourTime.checked == true) {
-                document.getElementById("medic-time1").value = "4:00";
+                document.getElementById("medic-time2").value = "4:00";
               }
               if (fourTime.checked == false) {
-                document.getElementById("medic-time1").value = "";
+                document.getElementById("medic-time2").value = "";
               }
             }
   
             function fiveTime() {
               let fiveTime = document.getElementById('five');
               if (fiveTime.checked == true) {
-                document.getElementById("medic-time1").value = "5:00";
+                document.getElementById("medic-time2").value = "5:00";
               }
               if (fiveTime.checked == false) {
-                document.getElementById("medic-time1").value = "";
+                document.getElementById("medic-time2").value = "";
               }
             }
   
             function sixTime() {
               let sixTime = document.getElementById('six');
               if (sixTime.checked == true) {
-                document.getElementById("medic-time1").value = "6:00";
+                document.getElementById("medic-time2").value = "6:00";
               }
               if (sixTime.checked == false) {
-                document.getElementById("medic-time1").value = "";
+                document.getElementById("medic-time2").value = "";
               }
             }
   
             function sevenTime() {
               let sevenTime = document.getElementById('seven');
               if (sevenTime.checked == true) {
-                document.getElementById("medic-time1").value = "7:00";
+                document.getElementById("medic-time2").value = "7:00";
               }
               if (sevenTime.checked == false) {
-                document.getElementById("medic-time1").value = "";
+                document.getElementById("medic-time2").value = "";
               }
             }
   
             function eightTime() {
               let eightTime = document.getElementById('eight');
               if (eightTime.checked == true) {
-                document.getElementById("medic-time1").value = "8:00";
+                document.getElementById("medic-time2").value = "8:00";
               }
               if (eightTime.checked == false) {
-                document.getElementById("medic-time1").value = "";
+                document.getElementById("medic-time2").value = "";
               }
             }
   
             function nineTime() {
               let nineTime = document.getElementById('nine');
               if (nineTime.checked == true) {
-                document.getElementById("medic-time1").value = "9:00";
+                document.getElementById("medic-time2").value = "9:00";
               }
               if (nineTime.checked == false) {
-                document.getElementById("medic-time1").value = "";
+                document.getElementById("medic-time2").value = "";
               }
             }
             
             function tenTime() {
               let tenTime = document.getElementById('ten');
               if (tenTime.checked == true) {
-                document.getElementById("medic-time1").value = "10:00";
+                document.getElementById("medic-time2").value = "10:00";
               }
               if (tenTime.checked == false) {
-                document.getElementById("medic-time1").value = "";
+                document.getElementById("medic-time2").value = "";
               }
             }
   
             function elevenTime() {
               let elevenTime = document.getElementById('eleven');
               if (elevenTime.checked == true) {
-                document.getElementById("medic-time1").value = "11:00";
+                document.getElementById("medic-time2").value = "11:00";
               }
               if (elevenTime.checked == false) {
-                document.getElementById("medic-time1").value = "";
+                document.getElementById("medic-time2").value = "";
               }
             }
   
             function twelveTime() {
               let twelveTime = document.getElementById('twelve');
               if (twelveTime.checked == true) {
-                document.getElementById("medic-time1").value = "12:00";
+                document.getElementById("medic-time2").value = "12:00";
               }
               if (twelveTime.checked == false) {
-                document.getElementById("medic-time1").value = "";
+                document.getElementById("medic-time2").value = "";
               }
             }
   
