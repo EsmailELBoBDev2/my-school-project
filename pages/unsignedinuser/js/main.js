@@ -18,7 +18,8 @@ dataRef.on("child_added", snap => {
   let medicTime2 = snap.child("medicTime2").val();
   let notes = snap.child("notes").val();
 
-  $("#dataShow").append("<tr><td>" + "الملاحظات: " + notes + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + medicTime1 + "</td><td>" + medicTime2 + " :الميعاد" + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + "إسم الدواء: " + medicName + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + "الإسم: " + name + "<br>");
+  $("#dataShow").append("<tr><td>" + "الملاحظات: " + notes + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + medicTime1 + "</td><td>" + medicTime2 + " :الميعاد" + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + "إسم الدواء: " + medicName + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + "الإسم: " + name + "<br><br>");
+  
 })
 
 

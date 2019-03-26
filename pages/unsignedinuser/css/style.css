@@ -9,3 +9,7 @@ body {
 {
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+#dataShow {
+  float: right;
+}
