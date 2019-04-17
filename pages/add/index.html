@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ADD | Nurse's Reminder</title>
+  <link rel="stylesheet" href="style.css">
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+</head>
+
+
+<body class="body">
+  <form id="patiatint">
+    <input id="name" type="text" placeholder="Enter The Name">
+    <input id="medic-name" type="text" placeholder="Enter Medic Name">
+    <input id="medic-time1" disabled="true" type="text" placeholder="Enter Time">
+    <input id="medic-time2" disabled="true" type="text" placeholder="Enter Time">
+    <input type="checkbox" onclick="amTime()" id="am">AM</input>
+    <input type="checkbox" onclick="bmTime()" id="bm">BM</input>
+    <input type="checkbox" onclick="oneTime()" id="one">1:00</input>
+    <input type="checkbox" onclick="twoTime()" id="two">2:00</input>
+    <input type="checkbox" onclick="threeTime()" id="three">3:00</input>
+    <input type="checkbox" onclick="fourTime()" id="four">4:00</input>
+    <input type="checkbox" onclick="fiveTime()" id="five">5:00</input>
+    <input type="checkbox" onclick="sixTime()" id="six">6:00</input>
+    <input type="checkbox" onclick="sevenTime()" id="seven">7:00</input>
+    <input type="checkbox" onclick="eightTime()" id="eight">8:00</input>
+    <input type="checkbox" onclick="nineTime()" id="nine">9:00</input>
+    <input type="checkbox" onclick="tenTime()" id="ten">10:00</input>
+    <input type="checkbox" onclick="elevenTime()" id="eleven">11:00</input>
+    <input type="checkbox" onclick="twelveTime()" id="twelve">12:00</input>
+    <input id="notes" type="text" placeholder="Enter Your Notes">
+    <button type="submit" id="submit">Submit</button>
+  </form>
+  <script src="jquery-3.3.1.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  <script src="main.js"></script>
+
+</body>
+
+</html>
