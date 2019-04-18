@@ -1,5 +1,4 @@
-// Initialize Firebase
-var config = {
+let config = {
   apiKey: "AIzaSyBZHH97LQ42n7j0fBjKR7LCLXkeDq-L7iw",
   authDomain: "pro-core-169202.firebaseapp.com",
   databaseURL: "https://pro-core-169202.firebaseio.com",
@@ -24,6 +23,8 @@ function submitform(e) {
   let notes = getInputVal("notes");
 
   saveData(name, medicName, medicTime1, medicTime2, notes);
+
+alert("Data Added!");
 }
 
 function getInputVal(id) {
