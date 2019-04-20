@@ -19,13 +19,19 @@ dataRef.on("child_added", snap => {
 
 $("#dataShow").append("<tr><td>" + "Name: " + name + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Medic Name: " + medicName + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Medic Time: " + medicTime1 + medicTime2 + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Notes: " + notes + "<br>");
 
+let date = new Date();
+let currentHour = date.getHours();
 
 setInterval(function() {
 if (medicTime1 == "1:00" && medicTime2 == "PM") {
-alert("test"); 
-} //else
+ if (currentHour = 21) {
+console.log("it's " + medicName + " Time!" + "(It's " + medicTime1 + medicTime2 + " Time!)");
+}
+} //elseif
 }
 , 600)
 
+
 })
-})
+
+
