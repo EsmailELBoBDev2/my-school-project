@@ -3,5 +3,7 @@
 
 # To Do:
 - Make It In Electron APP
-- Add The Reminder
+- Add The Reminder (*Almost Done!*)
+- Add Encryption/Decrytion Tool 
+- Make The Reminder On Server Side
 
