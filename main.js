@@ -1,13 +1,15 @@
 function loginme() {
-  let username = document.getElementById("username");
-  let password = document.getElementById("password");
-  if (username.value == "admin" && password.value == "admin") {
-    window.open("pages/loggedin/index");
-  } else {
-    alert("Data are wrong, MOTHERFUCKER!" + "\n" + "Sorry but you upset me, write the correct data or leave BITCH!" + "\n" + "and Oh by the way, iam joking okay ?");
-  }
+  window.open("pages/data/index");
 }
 
-function donotloginme() {
-  window.open("pages/unloggedin/index");
+function updateOnlineStatus(){
+    document.getElementById("status").innerHTML = "User is online";
 }
+
+function updateOfflineStatus()
+{
+    document.getElementById("status").innerHTML = "User is offline";
+}
+
+window.addEventListener('online',  updateOnlineStatus);
+window.addEventListener('offline', updateOfflineStatus);
