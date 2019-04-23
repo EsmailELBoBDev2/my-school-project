@@ -7,3 +7,8 @@ function showTheButton() {
       login.style.display = "block";
  }
 
+function hideTheButton() {
+  let login = document.getElementById("login");
+      login.style.display = "none";
+alert("Well, I Love Robots! But Sorry You Are Not Welcome Here")
+ }
