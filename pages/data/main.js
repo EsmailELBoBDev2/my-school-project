@@ -18,17 +18,22 @@ dataRef.on("child_added", snap => {
 
   $("#dataShow").append("<tr><td>" + "Name: " + name + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Medic Name: " + medicName + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Medic Time: " + medicTime + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Notes: " + notes + "<br>");
 
-  let date = new Date();
-  let currentHour = date.getHours();
 
-  setTimeout(function () {
+setInterval(function(){ 
+location.reload();
+}, 300000);
+setTimeout(function timer() {
+let date = new Date();
+let currentHour = date.getHours();
     if (medicTime == currentHour) {
       alert("it's " + medicName + " Time!" + "(It's " + medicTime + " Time!)");
     }
   }, 1)
+
 })
 
-let date = new Date();
-  let currentHour = date.getHours();
 
+let date = new Date();
+let currentHour = date.getHours();
   console.log(currentHour);
+

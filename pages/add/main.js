@@ -22,8 +22,6 @@ function submitform(e) {
   let notes = getInputVal("notes");
 
   saveData(name, medicName, medicTime, notes);
-
-alert("Data Added!");
 }
 
 function getInputVal(id) {
@@ -38,5 +36,10 @@ function saveData(name, medicName, medicTime, notes) {
     medicTime: medicTime,
     notes: notes
   });
+alert("Data Added!");
 }
 
+
+function popupMore() {
+  let popupMore = window.open("more", "Table Of 24 Time Formates", "width=200,height=100");
+}
