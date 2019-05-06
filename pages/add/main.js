@@ -3,18 +3,12 @@ let medicName = document.getElementById("medic-name").value;
 let medicTime = document.getElementById("medic-time").value;
 let notes = document.getElementById("notes").value;
 
-let myPassword = "trailing-abridge-uncoated-arousal-treason-chip-drop-down-raving-landmark-gift-trifle-unlovable-portside-wanted-skewed-only-yam-pennant-catnap-oversold";
+let myPassword = "password";
 
 let encryptedName = CryptoJS.AES.encrypt(name, myPassword);
 let encryptedMedicName = CryptoJS.AES.encrypt(medicName, myPassword);
 let encryptedMedicTime = CryptoJS.AES.encrypt(medicTime, myPassword);
 let encryptedNotes = CryptoJS.AES.encrypt(notes, myPassword);
-
-// let decryptedName = CryptoJS.AES.decrypt(encryptedName, myPassword);
-// let decryptedMedicName = CryptoJS.AES.decrypt(encryptedMedicName, myPassword);
-// let decryptedMedicTime = CryptoJS.AES.decrypt(encryptedMedicTime, myPassword);
-// let decryptedNotes = CryptoJS.AES.decrypt(encryptedNotes, myPassword);
-
 
 let config = {
   apiKey: "AIzaSyBZHH97LQ42n7j0fBjKR7LCLXkeDq-L7iw",
@@ -33,23 +27,23 @@ document.getElementById("patiatint").addEventListener("submit", submitform);
 
 function submitform(e) {
  e.preventDefault();
-  document.getElementById("demo0").innerHTML = encryptedName;
-  document.getElementById("demo1").innerHTML = encryptedMedicName;
-  document.getElementById("demo2").innerHTML = encryptedMedicTime;
-  document.getElementById("demo3").innerHTML = encryptedNotes;
-  saveData(demo0.innerHTML, demo1.innerHTML, demo2.innerHTML, demo3.innerHTML);
+  document.getElementById("encryptednameHTML").innerHTML = encryptedName;
+  document.getElementById("encryptedmedicnameHTML").innerHTML = encryptedMedicName;
+  document.getElementById("encryptedmedictimeHTML").innerHTML = encryptedMedicTime;
+  document.getElementById("encryptednotesHTML").innerHTML = encryptedNotes;
+  saveData(encryptednameHTML.innerHTML, encryptedmedicnameHTML.innerHTML, encryptedmedictimeHTML.innerHTML, encryptednotesHTML.innerHTML);
 
 }
 
 
 
-function saveData(demo0, demo1, demo2, demo3) {
+function saveData(encryptednameHTML, encryptedmedicnameHTML, encryptedMedicTimeHTML, encryptedNotesHTML) {
   let newDataRef = dataRef.push();
   newDataRef.set({
-    name: demo0,
-    medicName: demo1,
-    medicTime: demo2,
-    notes: demo3
+    name: encryptednameHTML,
+    medicName: encryptedmedicnameHTML,
+    medicTime: encryptedMedicTimeHTML,
+    notes: encryptedNotesHTML
   });
 alert("Data Added!");
 }

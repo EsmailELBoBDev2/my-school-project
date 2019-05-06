@@ -17,51 +17,31 @@ dataRef.on("child_added", snap => {
   let medicTime = snap.child("medicTime").val();
   let notes = snap.child("notes").val();
 
-  $("#dataShow").append("<tr><td>" + "Name: " + name + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Medic Name: " + medicName + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Medic Time: " + medicTime + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Notes: " + notes + "<br>");
+  let myPassword = "password";
 
-let date = new Date();
-let currentHour = date.getHours();
-console.log("Your current PC time is: " + currentHour);
+  let decryptedName = CryptoJS.AES.decrypt(name, myPassword).toString(CryptoJS.enc.Utf8);
+  let decryptedMedicName = CryptoJS.AES.decrypt(medicName, myPassword).toString(CryptoJS.enc.Utf8);
+  let decryptedMedicTime = CryptoJS.AES.decrypt(medicTime, myPassword).toString(CryptoJS.enc.Utf8);
+  let decryptedNotes = CryptoJS.AES.decrypt(notes, myPassword).toString(CryptoJS.enc.Utf8);
+  
+  $("#dataShow").append("<tr><td>" + "Name: " + decryptedName + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Medic Name: " + decryptedMedicName + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Medic Time: " + decryptedMedicTime + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Notes: " + decryptedNotes + "<br>");
 
-setInterval(function(){ 
-location.reload();
-}, 300000);
+// let date = new Date();
+// let currentHour = date.getHours();
+// console.log("Your current PC time is: " + currentHour);
 
-setTimeout(function(){ 
-if (medicTime == currentHour) {
-console.log("it's " + medicName + " Time!");
-    const alarm = new Audio()
-    alarm.src = 'alarm.mp3'
-    alarm.play()
-  $("#testo").append("<tr><td>" + "Name: " + name + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Medic Name: " + medicName + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Medic Time: " + medicTime + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Notes: " + notes + "<br>");
-}
-}, 1 );
+// setInterval(function(){ 
+// location.reload();
+// }, 300000);
 
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+// setTimeout(function(){ 
+// if (medicTime == currentHour) {
+// const alarm = new Audio()
+// alarm.src = 'alarm.mp3'
+// console.log("it's " + medicName + " Time!");
+//     alarm.play()
+// }
+// }, 1 );
 
 })
 

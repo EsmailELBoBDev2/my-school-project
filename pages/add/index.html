@@ -17,7 +17,7 @@
     <li>
       <a href="../data/index">Data Page</a>
     </li>
-</ul>
+  </ul>
   <form id="patiatint">
     <input id="name" type="text" placeholder="Enter The Name, EX: Ismail">
     <input id="medic-name" type="text" placeholder="Enter Medic Name, EX: Panadol">
@@ -26,30 +26,12 @@
     <input id="notes" type="text" placeholder="Enter Your Notes, EX: Important">
     <button type="submit" id="submit">Submit</button>
   </form>
-  <p>Preview Data!</p>
-
-  
-  <strong><label>Original String:</label></strong>
-    <span id="demo0"></span>
-  
-    <br>
-    <br>
-    
-    <strong><label>Encrypted:</label></strong>
-    <span id="demo1"></span>
-  
-    <br>
-    <br>
-    
-    <strong><label>Decrypted:</label></strong>
-    <span id="demo2"></span>
-  
-    <br> 
-    <br>
-  
-    <strong><label>String after Decryption:</label></strong>
-    <span id="demo3"></span>
-    
+  <div id="encrypted">
+    <span id="encryptednameHTML"></span>
+    <span id="encryptedmedicnameHTML"></span>
+    <span id="encryptedmedictimeHTML"></span>
+    <span id="encryptednotesHTML"></span>
+  </div>
 
 
   <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
@@ -57,4 +39,5 @@
   <script src="main.js"></script>
 
 </body>
+
 </html>
