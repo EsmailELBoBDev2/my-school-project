@@ -17,7 +17,7 @@ dataRef.on("child_added", snap => {
   let medicTime = snap.child("medicTime").val();
   let notes = snap.child("notes").val();
 
-  let myPassword = "password";
+  let myPassword = "lol";
 
   let decryptedName = CryptoJS.AES.decrypt(name, myPassword).toString(CryptoJS.enc.Utf8);
   let decryptedMedicName = CryptoJS.AES.decrypt(medicName, myPassword).toString(CryptoJS.enc.Utf8);

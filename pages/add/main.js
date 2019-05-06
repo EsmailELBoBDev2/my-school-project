@@ -3,7 +3,7 @@ let medicName = document.getElementById("medic-name").value;
 let medicTime = document.getElementById("medic-time").value;
 let notes = document.getElementById("notes").value;
 
-let myPassword = "password";
+let myPassword = "lol";
 
 let encryptedName = CryptoJS.AES.encrypt(name, myPassword);
 let encryptedMedicName = CryptoJS.AES.encrypt(medicName, myPassword);
@@ -46,6 +46,7 @@ function saveData(encryptednameHTML, encryptedmedicnameHTML, encryptedMedicTimeH
     notes: encryptedNotesHTML
   });
 alert("Data Added!");
+location.reload();
 }
 
 
