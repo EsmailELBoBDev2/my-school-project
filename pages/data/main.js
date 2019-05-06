@@ -26,22 +26,22 @@ dataRef.on("child_added", snap => {
   
   $("#dataShow").append("<tr><td>" + "Name: " + decryptedName + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Medic Name: " + decryptedMedicName + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Medic Time: " + decryptedMedicTime + "</td><td>" + "&nbsp;&nbsp;--&nbsp;&nbsp;" + " Notes: " + decryptedNotes + "<br>");
 
-// let date = new Date();
-// let currentHour = date.getHours();
-// console.log("Your current PC time is: " + currentHour);
+let date = new Date();
+let currentHour = date.getHours();
+console.log("Your current PC time is: " + currentHour);
 
-// setInterval(function(){ 
-// location.reload();
-// }, 300000);
+setInterval(function(){ 
+location.reload();
+}, 3600000);
 
-// setTimeout(function(){ 
-// if (medicTime == currentHour) {
-// const alarm = new Audio()
-// alarm.src = 'alarm.mp3'
-// console.log("it's " + medicName + " Time!");
-//     alarm.play()
-// }
-// }, 1 );
+setTimeout(function(){ 
+if (medicTime == currentHour) {
+const alarm = new Audio()
+alarm.src = 'alarm.mp3'
+console.log("it's " + medicName + " Time!");
+    alarm.play()
+}
+}, 1 );
 
 })
 
