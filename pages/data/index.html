@@ -18,11 +18,21 @@
     <li>
       <a href="../add/index">Add</a>
     </li>
+    <div id="loginsys">
+    <input id="email"></input>
+    <input id="password"></input>
+<button onclick="login()">SUB</button>
+
+</div>
+<button id="logout" onclick="logout()">Log out</button>
+
+    <button id="test">Test</button>
     <script src="jquery-3.3.1.js"></script>
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
     <script type="text/javascript" src="../add/bower_components/crypto-js/crypto-js.js"></script>
     <script src="main.js"></script>
-    <h2 id="dataShow"></h2> 
+    <h2 id="dataShowEncrypted"></h2> 
+    <h2 id="dataShowDecrypted"></h2> 
 
 </body>
 
