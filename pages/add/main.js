@@ -46,7 +46,6 @@ function saveData(encryptednameHTML, encryptedmedicnameHTML, encryptedMedicTimeH
     notes: encryptedNotesHTML
   });
 alert("Data Added!");
-location.reload();
 }
 
 

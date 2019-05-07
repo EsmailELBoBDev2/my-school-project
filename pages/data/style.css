@@ -1,3 +1,8 @@
 #dataShowDecrypted {
-display: none;
+    display: none;
+}
+
+#logout {
+    display: none;
+
 }
