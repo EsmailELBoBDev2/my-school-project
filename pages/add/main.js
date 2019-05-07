@@ -53,3 +53,4 @@ location.reload();
 function popupMore() {
   let popupMore = window.open("more", "Table Of 24 Time Formates", "width=200,height=100");
 }
+
