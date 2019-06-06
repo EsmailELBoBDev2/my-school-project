@@ -1,34 +1,38 @@
 <html>
 
-<head>
-    <title> MAIN PAGE - Nurse's Reminder </title>
+<header>
+    <meta charset="UTF-8">
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
     <link rel="stylesheet" href="style.css">
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
+</header>
+
+<head>
+    <title>The Nurse's Reminder</title>
 </head>
 
+
+
 <body>
-<p>Are You Robot ?</p>
-  <input type="radio" name="robot-check" value="yes" onclick="hideTheButton()" id="robot-yes">Yes<br>
-  <input type="radio" name="robot-check" value="no" onclick="showTheButton()" id="robot-no">No<br>
+    <p>ADD PEOPLE</p>
+    <form>
+        <input id="name" type="text" placeholder="Name, EX: Ismail">
+        <input id="medic-name" type="text" placeholder="Medic Name, EX: Panadol">
+        <input id="medic-time" type="text" placeholder="Medic Time In 24 Formate, EX: 24">
+        <input id="notes" type="text" value="" placeholder="Notes, EX: Important">
+        <button id="submit">SUBMIT</button>
+    </form>
 
-    <button id="login" onclick="loginme()">Click Me To Enter The Project</button>
-<!-- Do not Change My Link -->
-    <a href="https://paypal.me/esmailelbobpro1">Donate To Developer</a>
-<!-- Add Your Donation Page Here -->
-    <a href="#">Donate To Admin</a>
-<!-- Do not Change My Link -->
-    <a href="https://esmailelbob.hashbase.io/pages/accounts/index">Contact With Developer If You Found A Bug Or Have Suggestions</a>
-<!-- Add A Way To Contact With You Here -->
-    <a href="#">Contact With Admin If You Found A Bug Or Have Suggestions</a>
-
-<p>*Admin Who's Hosting The APP On His Database Or Website & Developer Who's Made The APP!</p>
-    <script src="main.js"></script>
-</body>
-<footer class="footer">
-    <p>This Project Under GPL V3</p>
-<a href="https://github.com/EsmailELBoBDev2/my-school-project">Source Code</a>
     </div>
+
+    <script src="main.js"></script>
+
+
+</body>
+
+
+<footer>
+
 </footer>
 
 </html>
