@@ -8,32 +8,62 @@ var firebaseConfig = {
   appId: "1:15533904472:web:b260608b9c15e8f3"
 };
 firebase.initializeApp(firebaseConfig);
-let MedicalData = firebase.database().ref('Medical Data');
 
-var encryptedName = CryptoJS.AES.encrypt(document.getElementById("name").value, 'lol');
-var encryptedName = CryptoJS.AES.encrypt(document.getElementById("medic-name").value, 'lol');
-var encryptedName = CryptoJS.AES.encrypt(document.getElementById("medic-time").value, 'lol');
-var encryptedName = CryptoJS.AES.encrypt(document.getElementById("notes").value, 'lol');
+
+var MedicalData = firebase.database().ref('Medical Data');
+
+var dataRef = firebase.database().ref("Medical Data");
+dataRef.on("value", gotData)
+
+
+function gotData(data) {
+  var datalistings = document.querySelectorAll(".datalisting");
+  for (var i = 0; i < datalistings.length; i++) {
+    datalistings[i].remove();
+  }
+
+  var MedicalData = data.val();
+  var keys = Object.keys(MedicalData);
+  for (var i = 0; i < keys.length; i++) {
+    var k = keys[i];
+    var decryptedName = CryptoJS.AES.decrypt(MedicalData[k].Name, "lol").toString(CryptoJS.enc.Utf8);
+    var decryptedMedicName = CryptoJS.AES.decrypt(MedicalData[k].MedicName, "lol").toString(CryptoJS.enc.Utf8);
+    var decryptedMedicTime = CryptoJS.AES.decrypt(MedicalData[k].MedicTime, "lol").toString(CryptoJS.enc.Utf8);
+    var decryptedNotes = CryptoJS.AES.decrypt(MedicalData[k].Notes, "lol").toString(CryptoJS.enc.Utf8);
+
+    var li = document.createElement('li');
+    li.innerHTML = "Name: " + decryptedName + " Medic Name: " + decryptedMedicName + " Medic Time: " + decryptedMedicTime + " Notes:" + decryptedNotes;
+    li.setAttribute("class", "datalisting");
+    document.getElementById("datalist").appendChild(li);
+  }
+}
 
 
 document.getElementById("encrypt").addEventListener("click", function (event) {
   event.preventDefault()
-  document.getElementById("encryptednameHTML").innerHTML = encryptedName;
-  document.getElementById("encryptedmedicnameHTML").innerHTML = encryptedName;
-  document.getElementById("encryptedmedictimeHTML").innerHTML = encryptedName;
-  document.getElementById("encryptednotesHTML").innerHTML = encryptedName;
 
+  var Name = document.getElementById("name");
+  var MedicName = document.getElementById("medic-name");
+  var MedicTime = document.getElementById("medic-time");
+  var Notes = document.getElementById("notes");
 
-});
+  var encryptedName = CryptoJS.AES.encrypt(Name.value, "lol");
+  var encryptedMedicName = CryptoJS.AES.encrypt(MedicName.value, "lol");
+  var EncryptedMedicTime = CryptoJS.AES.encrypt(MedicTime.value, "lol");
+  var EncryptedNotes = CryptoJS.AES.encrypt(Notes.value, "lol");
 
+  document.getElementById("name").value = encryptedName;
+  document.getElementById("medic-name").value = encryptedMedicName;
+  document.getElementById("medic-time").value = EncryptedMedicTime;
+  document.getElementById("notes").value = EncryptedNotes;
 
-document.getElementById("submit").addEventListener("click", function (event) {
-  event.preventDefault()
   var data = {
-    name: document.getElementById("encryptednameHTML").innerHTML,
-    MedicName: document.getElementById("encryptedmedicnameHTML").innerHTML,
-    MedicTime: document.getElementById("encryptedmedictimeHTML").innerHTML,
-    Notes: document.getElementById("encryptednotesHTML").innerHTML
+    Name: document.getElementById("name").value,
+    MedicName: document.getElementById("medic-name").value,
+    MedicTime: document.getElementById("medic-time").value,
+    Notes: document.getElementById("notes").value
   }
+
   MedicalData.push(data);
+
 });

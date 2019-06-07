@@ -1,17 +1,12 @@
 <html>
-
 <header>
     <meta charset="UTF-8">
-    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
     <link rel="stylesheet" href="style.css">
 </header>
 
 <head>
     <title>The Nurse's Reminder</title>
 </head>
-
-
 
 <body>
     <p>ADD PEOPLE</p>
@@ -22,33 +17,18 @@
         <input id="notes" type="text" name="notes" placeholder="Notes, EX: Important">
         <button type="submit" id="encrypt">Encrypt</button>
     </form>
-
-    <div>
-        <p>Preview Encrypted Data Before Send Them!</p>
-        <P> Name: <h2 id="encryptednameHTML"></h2>
-        </P>
-        <P> Medic Name: <h2 id="encryptedmedicnameHTML"></h2>
-        </P>
-        <P> Medic Time: <h2 id="encryptedmedictimeHTML"></h2>
-        </P>
-        <P> Notes: <h2 id="encryptednotesHTML"></h2>
-        </P>
-        <button type="submit" id="submit">SUBMIT</button>
-
+    <div id="Data">
+        <p>
+            <ol id="datalist"></ol>
+        </p>
     </div>
-
-
-
-
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
     <script type="text/javascript" src="bower_components/crypto-js/crypto-js.js"></script>
     <script src="main.js"></script>
-
-
 </body>
 
-
 <footer>
-
 </footer>
 
 </html>
