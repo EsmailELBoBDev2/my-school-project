@@ -20,11 +20,27 @@
         <input id="medic-name" name="medic-name" type="text" placeholder="Medic Name, EX: Panadol">
         <input id="medic-time" name="medic-time" type="text" placeholder="Medic Time In 24 Formate, EX: 24">
         <input id="notes" type="text" name="notes" placeholder="Notes, EX: Important">
-        <button id="submit">SUBMIT</button>
+        <button type="submit" id="encrypt">Encrypt</button>
     </form>
+
+    <div>
+        <p>Preview Encrypted Data Before Send Them!</p>
+        <P> Name: <h2 id="encryptednameHTML"></h2>
+        </P>
+        <P> Medic Name: <h2 id="encryptedmedicnameHTML"></h2>
+        </P>
+        <P> Medic Time: <h2 id="encryptedmedictimeHTML"></h2>
+        </P>
+        <P> Notes: <h2 id="encryptednotesHTML"></h2>
+        </P>
+        <button type="submit" id="submit">SUBMIT</button>
 
     </div>
 
+
+
+
+    <script type="text/javascript" src="bower_components/crypto-js/crypto-js.js"></script>
     <script src="main.js"></script>
 
 
