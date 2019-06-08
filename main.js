@@ -36,8 +36,26 @@ function gotData(data) {
     li.setAttribute("class", "datalisting");
     document.getElementById("datalist").appendChild(li);
   }
-}
 
+// */> ITS FOR TESTING SO YEAH THIS PART CAN BE CHANGED ANY TIME!  <\* //
+
+//   var HoursObject = { 'Hours': tesT() };
+// localStorage.setItem('HoursObject', JSON.stringify(HoursObject));
+// var retrievedObject = JSON.parse(localStorage.getItem('HoursObject'));
+// console.log('retrievedObject: ', retrievedObject);
+
+// function tesT() {
+//   // setInterval(function() {
+//     var date = new Date();
+//     var currentHour = date.getHours();
+//    if (currentHour == decryptedMedicTime ) {
+//      alert("It's Medic Time! " + "The Medic For: " + decryptedName + " The Medic Name Is: " + decryptedMedicName + " Its: " + decryptedMedicTime + " OClock" + " Your Notes Was: " + decryptedNotes)
+//    }
+//    console.log(currentHour);
+
+//   // }, 3000);
+// }
+}
 
 document.getElementById("encrypt").addEventListener("click", function (event) {
   event.preventDefault()
@@ -63,8 +81,19 @@ document.getElementById("encrypt").addEventListener("click", function (event) {
     MedicTime: document.getElementById("medic-time").value,
     Notes: document.getElementById("notes").value
   }
+  document.getElementById("name").disabled = true;
+  document.getElementById("medic-name").disabled = true;
+  document.getElementById("medic-time").disabled = true;
+  document.getElementById("notes").disabled = true;
 
   MedicalData.push(data);
+
+  document.getElementById("name").disabled = false;
+  document.getElementById("medic-name").disabled = false;
+  document.getElementById("medic-time").disabled = false;
+  document.getElementById("notes").disabled = false;
+
+alert("Data Sent!")
 
 });
 
@@ -74,6 +103,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("password").style.display = "none";
     document.getElementById("login").style.display = "none";
     document.getElementById("datalist").style.display = "block";
+    document.getElementById("addpeople").style.display = "block";
     document.getElementById("logout").style.display = "block";
 
   } else {
@@ -81,9 +111,9 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("email").style.display = "block";
     document.getElementById("password").style.display = "block";
     document.getElementById("login").style.display = "block";
+    document.getElementById("addpeople").style.display = "none";
     document.getElementById("datalist").style.display = "none";
     document.getElementById("logout").style.display = "none";
-
 
   }
 });
@@ -102,5 +132,7 @@ function login() {
 
 function logout() {
   firebase.auth().signOut();
-
 }
+
+
+

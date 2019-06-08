@@ -10,28 +10,27 @@
 
 <body>
     <p>ADD PEOPLE</p>
-    <form>
+
+    <div id="loginsys">
+        <input id="email" name="name" type="text" placeholder="E-mail, Type: admin@gmail.com">
+        <input id="password" name="name" type="text" placeholder="Password, Type: admin123">
+        <button onclick="login()" type="submit" id="login">Log In</button>
+        <button onclick="logout()" type="submit" id="logout">Log Out</button>
+    </div>
+
+    <form id="addpeople">
         <input id="name" name="name" type="text" placeholder="Name, EX: Ismail">
         <input id="medic-name" name="medic-name" type="text" placeholder="Medic Name, EX: Panadol">
         <input id="medic-time" name="medic-time" type="text" placeholder="Medic Time In 24 Formate, EX: 24">
         <input id="notes" type="text" name="notes" placeholder="Notes, EX: Important">
-        <button type="submit" id="encrypt">Encrypt</button>
+        <button type="submit" id="encrypt">Encrypt & Send</button>
     </form>
+
     <div id="Data">
         <p>
             <ol id="datalist"></ol>
         </p>
     </div>
-
-    <div id="">
-        <input id="email" name="name" type="text" placeholder="E-mail, Type: admin@gmail.com">
-        <input id="password" name="name" type="text" placeholder="Password, Type: admin123">
-        <button onclick="login()" type="submit" id="login">Log In</button>
-        <button onclick="logout()" type="submit" id="logout">Log Out</button>
-
-
-    </div>
-
 
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
