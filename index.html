@@ -22,8 +22,20 @@
             <ol id="datalist"></ol>
         </p>
     </div>
+
+    <div id="">
+        <input id="email" name="name" type="text" placeholder="E-mail, Type: admin@gmail.com">
+        <input id="password" name="name" type="text" placeholder="Password, Type: admin123">
+        <button onclick="login()" type="submit" id="login">Log In</button>
+        <button onclick="logout()" type="submit" id="logout">Log Out</button>
+
+
+    </div>
+
+
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
     <script type="text/javascript" src="bower_components/crypto-js/crypto-js.js"></script>
     <script src="main.js"></script>
 </body>

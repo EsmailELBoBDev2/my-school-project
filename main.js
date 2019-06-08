@@ -67,3 +67,40 @@ document.getElementById("encrypt").addEventListener("click", function (event) {
   MedicalData.push(data);
 
 });
+
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    document.getElementById("email").style.display = "none";
+    document.getElementById("password").style.display = "none";
+    document.getElementById("login").style.display = "none";
+    document.getElementById("datalist").style.display = "block";
+    document.getElementById("logout").style.display = "block";
+
+  } else {
+
+    document.getElementById("email").style.display = "block";
+    document.getElementById("password").style.display = "block";
+    document.getElementById("login").style.display = "block";
+    document.getElementById("datalist").style.display = "none";
+    document.getElementById("logout").style.display = "none";
+
+
+  }
+});
+
+function login() {
+  var userEmail = document.getElementById("email").value;
+  var userPass = document.getElementById("password").value;
+
+  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert("Error: " + errorMessage + ", " + "Error Code: " + errorCode);
+  });
+
+}
+
+function logout() {
+  firebase.auth().signOut();
+
+}
