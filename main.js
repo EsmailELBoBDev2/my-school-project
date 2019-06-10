@@ -39,23 +39,46 @@ function gotData(data) {
 
 // */> ITS FOR TESTING SO YEAH THIS PART CAN BE CHANGED ANY TIME!  <\* //
 
-//   var HoursObject = { 'Hours': tesT() };
-// localStorage.setItem('HoursObject', JSON.stringify(HoursObject));
-// var retrievedObject = JSON.parse(localStorage.getItem('HoursObject'));
-// console.log('retrievedObject: ', retrievedObject);
+// var date = new Date();
+// var currentHour = date.getHours();
+// console.log(currentHour);
 
-// function tesT() {
-//   // setInterval(function() {
-//     var date = new Date();
-//     var currentHour = date.getHours();
-//    if (currentHour == decryptedMedicTime ) {
-//      alert("It's Medic Time! " + "The Medic For: " + decryptedName + " The Medic Name Is: " + decryptedMedicName + " Its: " + decryptedMedicTime + " OClock" + " Your Notes Was: " + decryptedNotes)
-//    }
-//    console.log(currentHour);
-
-//   // }, 3000);
+// function timer() {
+//   var audio = new Audio('alarm.mp3');
+//   audio.play();
+//   audio.loop = true;
+//   if (confirm("It's Medic Time! " + "The Medic For: " + decryptedName + " The Medic Name Is: " + decryptedMedicName + " Its: " + decryptedMedicTime + " O'Clock" + " Your Notes Are: " + decryptedNotes)) {
+//    audio.pause();
+//  } else {
+//    audio.pause();
+//      } 
 // }
+
+//   setInterval(function() {
+//    if (currentHour == decryptedMedicTime ) {
+//     timer()
+//     }
+//   }, 60000);
+
 }
+
+
+// */> New TEST Code <\* //
+
+// function timer() {
+//   var date = new Date();
+// var currentHour = date.getHours();
+// const startTime = localStorage.getItem('currentHour');
+// if (typeof(Storage) !== "undefined") {
+//   // Store
+//   localStorage.setItem("currentHour", currentHour);
+// }
+// if(currentHour == startTime){
+  
+//   alert('Timeout, 60 seconds!');
+// }
+// }
+
 
 document.getElementById("encrypt").addEventListener("click", function (event) {
   event.preventDefault()
