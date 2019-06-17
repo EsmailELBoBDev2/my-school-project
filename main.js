@@ -35,7 +35,7 @@ function gotData(data) {
     li.innerHTML = "Name: " + decryptedName + " Medic Name: " + decryptedMedicName + " Medic Time: " + decryptedMedicTime + " Notes:" + decryptedNotes;
     li.setAttribute("class", "datalisting");
     document.getElementById("datalist").appendChild(li);
-  }
+  
 
 // */> ITS FOR TESTING SO YEAH THIS PART CAN BE CHANGED ANY TIME!  <\* //
 
@@ -49,8 +49,12 @@ function gotData(data) {
 //   audio.loop = true;
 //   if (confirm("It's Medic Time! " + "The Medic For: " + decryptedName + " The Medic Name Is: " + decryptedMedicName + " Its: " + decryptedMedicTime + " O'Clock" + " Your Notes Are: " + decryptedNotes)) {
 //    audio.pause();
+ //   document.getElementById("test").click();
+
 //  } else {
 //    audio.pause();
+//   document.getElementById("test").click();
+
 //      } 
 // }
 
@@ -78,6 +82,96 @@ function gotData(data) {
 //   alert('Timeout, 60 seconds!');
 // }
 // }
+
+}
+
+
+
+// var date = new Date();
+// var currentHour = date.getHours();
+// console.log("lol: " + currentHour);
+// var audio = new Audio('alarm.mp3');
+// var starttime = localStorage.getItem("lastname");
+// function testo() {
+ 
+//     localStorage.setItem("lastname", 
+//     setInterval(function() {
+            
+//             if(starttime == starttime) {
+//               alert("its time");
+//             }
+//             }, 6000));
+//         console.log("set");
+
+
+// }
+
+
+
+
+
+
+
+// var date = new Date();
+// // This will get the Unix time aka epoch. Js adds the milliseconds which you won’t need hence the “/1000”
+// var epoch = date.getTime() / 1000; 
+// // localStorage.setItem("logTime", epoch);
+
+// if (localStorage.getItem("logTime") === null) {
+//   localStorage.setItem("logTime", epoch);
+// } else {
+//   var lastTime = localStorage.getItem("logTime") + 3600;
+//   var date = new Date();
+//   var currentTime = date.getTime();
+//   if(currentTime > lastTime) {
+    
+// setInterval(function() {
+            
+//   alert("test")
+        
+// }, 6000);
+//   }
+// }
+
+
+// function testoo() {
+//   localStorage.removeItem(key);
+//   console.log("removed");
+
+// }
+
+// console.log(localStorage.getItem("logTime"));
+
+
+function setupInterval (callback, interval, name) {
+  var key = '_timeInMs_' + (name || '');
+  var now = Date.now();
+  var timeInMs = localStorage.getItem(key);
+  var executeCallback = function () {
+    localStorage.setItem(key, Date.now());
+    callback();
+  }
+  if (timeInMs) { // User has visited
+    var time = parseInt(timeInMs);
+    var delta = now - time;
+    if (delta > interval) { // User has been away longer than interval
+      setInterval(executeCallback, interval);
+    } else { // Execute callback when we reach the next interval
+      setTimeout(function () {
+        setInterval(executeCallback, interval);
+        executeCallback();
+      }, interval - delta);
+    }
+  } else {
+    setInterval(executeCallback, interval);
+  }
+  localStorage.setItem(key, now);
+}
+
+setupInterval(function () {
+  console.log("test"); // function is called here
+}, 10000);
+
 
 
 document.getElementById("encrypt").addEventListener("click", function (event) {
