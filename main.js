@@ -1,11 +1,11 @@
 var firebaseConfig = {
-  apiKey: "AIzaSyB444udd_UeONooSUbjOplVqrElpHv4Hgc",
-  authDomain: "my-first-project-9a87e.firebaseapp.com",
-  databaseURL: "https://my-first-project-9a87e.firebaseio.com",
-  projectId: "my-first-project-9a87e",
+  apiKey: "AIzaSyAoS7gUbyUlUhf42zofuOfJM4cEphjnwV4",
+  authDomain: "my-not-awesome-project-lol.firebaseapp.com",
+  databaseURL: "https://my-not-awesome-project-lol.firebaseio.com",
+  projectId: "my-not-awesome-project-lol",
   storageBucket: "",
-  messagingSenderId: "15533904472",
-  appId: "1:15533904472:web:b260608b9c15e8f3"
+  messagingSenderId: "697473006917",
+  appId: "1:697473006917:web:36d7765e880db48a"
 };
 firebase.initializeApp(firebaseConfig);
 
@@ -26,16 +26,18 @@ function gotData(data) {
   var keys = Object.keys(MedicalData);
   for (var i = 0; i < keys.length; i++) {
     var k = keys[i];
-    var decryptedName = CryptoJS.AES.decrypt(MedicalData[k].Name, "lol").toString(CryptoJS.enc.Utf8);
-    var decryptedMedicName = CryptoJS.AES.decrypt(MedicalData[k].MedicName, "lol").toString(CryptoJS.enc.Utf8);
-    var decryptedMedicTime = CryptoJS.AES.decrypt(MedicalData[k].MedicTime, "lol").toString(CryptoJS.enc.Utf8);
-    var decryptedNotes = CryptoJS.AES.decrypt(MedicalData[k].Notes, "lol").toString(CryptoJS.enc.Utf8);
+  // var encryptPassword = "lol";
+    var decryptedName = CryptoJS.AES.decrypt(MedicalData[k].Name, "lol1").toString(CryptoJS.enc.Utf8);
+    var decryptedMedicName = CryptoJS.AES.decrypt(MedicalData[k].MedicName, "lol2").toString(CryptoJS.enc.Utf8);
+    var decryptedMedicTime = CryptoJS.AES.decrypt(MedicalData[k].MedicTime, "lol3").toString(CryptoJS.enc.Utf8);
+    var decryptedNotes = CryptoJS.AES.decrypt(MedicalData[k].Notes, "lol4").toString(CryptoJS.enc.Utf8);
 
     var li = document.createElement('li');
     li.innerHTML = "Name: " + decryptedName + " Medic Name: " + decryptedMedicName + " Medic Time: " + decryptedMedicTime + " Notes:" + decryptedNotes;
     li.setAttribute("class", "datalisting");
     document.getElementById("datalist").appendChild(li);
-  
+}
+}
 
 // */> ITS FOR TESTING SO YEAH THIS PART CAN BE CHANGED ANY TIME!  <\* //
 
@@ -64,7 +66,8 @@ function gotData(data) {
 //     }
 //   }, 60000);
 
-}
+
+// ------------------------------
 
 
 // */> New TEST Code <\* //
@@ -83,8 +86,8 @@ function gotData(data) {
 // }
 // }
 
-}
 
+// ------------------------------
 
 
 // var date = new Date();
@@ -107,9 +110,7 @@ function gotData(data) {
 // }
 
 
-
-
-
+// ------------------------------
 
 
 // var date = new Date();
@@ -143,34 +144,37 @@ function gotData(data) {
 // console.log(localStorage.getItem("logTime"));
 
 
-function setupInterval (callback, interval, name) {
-  var key = '_timeInMs_' + (name || '');
-  var now = Date.now();
-  var timeInMs = localStorage.getItem(key);
-  var executeCallback = function () {
-    localStorage.setItem(key, Date.now());
-    callback();
-  }
-  if (timeInMs) { // User has visited
-    var time = parseInt(timeInMs);
-    var delta = now - time;
-    if (delta > interval) { // User has been away longer than interval
-      setInterval(executeCallback, interval);
-    } else { // Execute callback when we reach the next interval
-      setTimeout(function () {
-        setInterval(executeCallback, interval);
-        executeCallback();
-      }, interval - delta);
-    }
-  } else {
-    setInterval(executeCallback, interval);
-  }
-  localStorage.setItem(key, now);
-}
+// ------------------------------
 
-setupInterval(function () {
-  console.log("test"); // function is called here
-}, 10000);
+
+// function setupInterval (callback, interval, name) {
+//   var key = '_timeInMs_' + (name || '');
+//   var now = Date.now();
+//   var timeInMs = localStorage.getItem(key);
+//   var executeCallback = function () {
+//     localStorage.setItem(key, Date.now());
+//     callback();
+//   }
+//   if (timeInMs) { // User has visited
+//     var time = parseInt(timeInMs);
+//     var delta = now - time;
+//     if (delta > interval) { // User has been away longer than interval
+//       setInterval(executeCallback, interval);
+//     } else { // Execute callback when we reach the next interval
+//       setTimeout(function () {
+//         setInterval(executeCallback, interval);
+//         executeCallback();
+//       }, interval - delta);
+//     }
+//   } else {
+//     setInterval(executeCallback, interval);
+//   }
+//   localStorage.setItem(key, now);
+// }
+
+// setupInterval(function () {
+//   console.log("test"); // function is called here
+// }, 10000);
 
 
 
@@ -181,16 +185,17 @@ document.getElementById("encrypt").addEventListener("click", function (event) {
   var MedicName = document.getElementById("medic-name");
   var MedicTime = document.getElementById("medic-time");
   var Notes = document.getElementById("notes");
-
-  var encryptedName = CryptoJS.AES.encrypt(Name.value, "lol");
-  var encryptedMedicName = CryptoJS.AES.encrypt(MedicName.value, "lol");
-  var EncryptedMedicTime = CryptoJS.AES.encrypt(MedicTime.value, "lol");
-  var EncryptedNotes = CryptoJS.AES.encrypt(Notes.value, "lol");
+  
+  // var encryptPassword = "lol";
+  var encryptedName = CryptoJS.AES.encrypt(Name.value, "lol1");
+  var encryptedMedicName = CryptoJS.AES.encrypt(MedicName.value, "lol2");
+  var encryptedMedicTime = CryptoJS.AES.encrypt(MedicTime.value, "lol3");
+  var encryptedNotes = CryptoJS.AES.encrypt(Notes.value, "lol4");
 
   document.getElementById("name").value = encryptedName;
   document.getElementById("medic-name").value = encryptedMedicName;
-  document.getElementById("medic-time").value = EncryptedMedicTime;
-  document.getElementById("notes").value = EncryptedNotes;
+  document.getElementById("medic-time").value = encryptedMedicTime;
+  document.getElementById("notes").value = encryptedNotes;
 
   var data = {
     Name: document.getElementById("name").value,
