@@ -1,3 +1,8 @@
+window.onbeforeunload = function() {
+  return "Are you sure? The Time Will Not Work If You Reloaded The Page Several Times!";
+};
+
+
 var firebaseConfig = {
   apiKey: "AIzaSyAoS7gUbyUlUhf42zofuOfJM4cEphjnwV4",
   authDomain: "my-not-awesome-project-lol.firebaseapp.com",
@@ -41,112 +46,6 @@ function gotData(data) {
 
 // */> ITS FOR TESTING SO YEAH THIS PART CAN BE CHANGED ANY TIME!  <\* //
 
-// var date = new Date();
-// var currentHour = date.getHours();
-// console.log(currentHour);
-
-// function timer() {
-//   var audio = new Audio('alarm.mp3');
-//   audio.play();
-//   audio.loop = true;
-//   if (confirm("It's Medic Time! " + "The Medic For: " + decryptedName + " The Medic Name Is: " + decryptedMedicName + " Its: " + decryptedMedicTime + " O'Clock" + " Your Notes Are: " + decryptedNotes)) {
-//    audio.pause();
- //   document.getElementById("test").click();
-
-//  } else {
-//    audio.pause();
-//   document.getElementById("test").click();
-
-//      } 
-// }
-
-//   setInterval(function() {
-//    if (currentHour == decryptedMedicTime ) {
-//     timer()
-//     }
-//   }, 60000);
-
-
-// ------------------------------
-
-
-// */> New TEST Code <\* //
-
-// function timer() {
-//   var date = new Date();
-// var currentHour = date.getHours();
-// const startTime = localStorage.getItem('currentHour');
-// if (typeof(Storage) !== "undefined") {
-//   // Store
-//   localStorage.setItem("currentHour", currentHour);
-// }
-// if(currentHour == startTime){
-  
-//   alert('Timeout, 60 seconds!');
-// }
-// }
-
-
-// ------------------------------
-
-
-// var date = new Date();
-// var currentHour = date.getHours();
-// console.log("lol: " + currentHour);
-// var audio = new Audio('alarm.mp3');
-// var starttime = localStorage.getItem("lastname");
-// function testo() {
- 
-//     localStorage.setItem("lastname", 
-//     setInterval(function() {
-            
-//             if(starttime == starttime) {
-//               alert("its time");
-//             }
-//             }, 6000));
-//         console.log("set");
-
-
-// }
-
-
-// ------------------------------
-
-
-// var date = new Date();
-// // This will get the Unix time aka epoch. Js adds the milliseconds which you won’t need hence the “/1000”
-// var epoch = date.getTime() / 1000; 
-// // localStorage.setItem("logTime", epoch);
-
-// if (localStorage.getItem("logTime") === null) {
-//   localStorage.setItem("logTime", epoch);
-// } else {
-//   var lastTime = localStorage.getItem("logTime") + 3600;
-//   var date = new Date();
-//   var currentTime = date.getTime();
-//   if(currentTime > lastTime) {
-    
-// setInterval(function() {
-            
-//   alert("test")
-        
-// }, 6000);
-//   }
-// }
-
-
-// function testoo() {
-//   localStorage.removeItem(key);
-//   console.log("removed");
-
-// }
-
-// console.log(localStorage.getItem("logTime"));
-
-
-// ------------------------------
-
-
 // function setupInterval (callback, interval, name) {
 //   var key = '_timeInMs_' + (name || '');
 //   var now = Date.now();
@@ -173,8 +72,10 @@ function gotData(data) {
 // }
 
 // setupInterval(function () {
-//   console.log("test"); // function is called here
+//   alert("test"); // function is called here
 // }, 10000);
+
+// localStorage.removeItem("key");
 
 
 
@@ -255,6 +156,3 @@ function login() {
 function logout() {
   firebase.auth().signOut();
 }
-
-
-
