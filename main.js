@@ -72,10 +72,10 @@ function gotData(data) {
 // }
 
 // setupInterval(function () {
-//   alert("test"); // function is called here
+//   alert("one hour done!"); // function is called here
 // }, 10000);
 
-// localStorage.removeItem("key");
+localStorage.removeItem("key");
 
 
 
