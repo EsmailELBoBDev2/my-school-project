@@ -21,12 +21,6 @@ var dataRef = firebase.database().ref("Medical Data");
 dataRef.on("value", gotData)
 
 
-var decryptedName = CryptoJS.AES.decrypt(MedicalData[k].Name, "lol1").toString(CryptoJS.enc.Utf8);
-var decryptedMedicName = CryptoJS.AES.decrypt(MedicalData[k].MedicName, "lol2").toString(CryptoJS.enc.Utf8);
-var decryptedMedicTime = CryptoJS.AES.decrypt(MedicalData[k].MedicTime, "lol3").toString(CryptoJS.enc.Utf8);
-var decryptedNotes = CryptoJS.AES.decrypt(MedicalData[k].Notes, "lol4").toString(CryptoJS.enc.Utf8);
-
-
 function gotData(data) {
   var datalistings = document.querySelectorAll(".datalisting");
   for (var i = 0; i < datalistings.length; i++) {
@@ -38,13 +32,17 @@ function gotData(data) {
   for (var i = 0; i < keys.length; i++) {
     var k = keys[i];
     // var encryptPassword = "lol";
+    var decryptedName = CryptoJS.AES.decrypt(MedicalData[k].Name, "lol1").toString(CryptoJS.enc.Utf8);
+    var decryptedMedicName = CryptoJS.AES.decrypt(MedicalData[k].MedicName, "lol2").toString(CryptoJS.enc.Utf8);
+    var decryptedMedicTime = CryptoJS.AES.decrypt(MedicalData[k].MedicTime, "lol3").toString(CryptoJS.enc.Utf8);
+    var decryptedNotes = CryptoJS.AES.decrypt(MedicalData[k].Notes, "lol4").toString(CryptoJS.enc.Utf8);
 
     var li = document.createElement('li');
     li.innerHTML = "Name: " + decryptedName + " Medic Name: " + decryptedMedicName + " Medic Time: " + decryptedMedicTime + " Notes: " + decryptedNotes;
     li.setAttribute("class", "datalisting");
     document.getElementById("datalist").appendChild(li);
   }
-}
+
 
 // */> ITS FOR TESTING SO YEAH THIS PART CAN BE CHANGED ANY TIME!  <\* //
 
@@ -76,14 +74,14 @@ function setupInterval(callback, interval, name) {
 setupInterval(function () {
   var date = new Date();
   var currentHour = date.getHours();
-  if (currentHour == decryptedMedicTime) {
+  if (currentHour == decryptedMedicTime ) {
     alert("It's " + decryptedMedicName + " Time! " + "Please Give It To " + decryptedName + " & Your Notes Was: " + decryptedNotes)
   }
   alert("one hour done!"); // function is called here
 }, 3600000);
 
 // localStorage.removeItem("key");
-
+}
 
 
 document.getElementById("encrypt").addEventListener("click", function (event) {
