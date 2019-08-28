@@ -77,9 +77,8 @@ setupInterval(function () {
   if (currentHour == decryptedMedicTime ) {
     alert("It's " + decryptedMedicName + " Time! " + "Please Give It To " + decryptedName + " & Your Notes Was: " + decryptedNotes)
   }
-  alert("one hour done!"); // function is called here
-}, 3600000);
-
+}, 5000);
+// 3600000
 // localStorage.removeItem("key");
 }
 
