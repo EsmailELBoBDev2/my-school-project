@@ -46,34 +46,34 @@ function gotData(data) {
 
 // */> ITS FOR TESTING SO YEAH THIS PART CAN BE CHANGED ANY TIME!  <\* //
 
-// function setupInterval (callback, interval, name) {
-//   var key = '_timeInMs_' + (name || '');
-//   var now = Date.now();
-//   var timeInMs = localStorage.getItem(key);
-//   var executeCallback = function () {
-//     localStorage.setItem(key, Date.now());
-//     callback();
-//   }
-//   if (timeInMs) { // User has visited
-//     var time = parseInt(timeInMs);
-//     var delta = now - time;
-//     if (delta > interval) { // User has been away longer than interval
-//       setInterval(executeCallback, interval);
-//     } else { // Execute callback when we reach the next interval
-//       setTimeout(function () {
-//         setInterval(executeCallback, interval);
-//         executeCallback();
-//       }, interval - delta);
-//     }
-//   } else {
-//     setInterval(executeCallback, interval);
-//   }
-//   localStorage.setItem(key, now);
-// }
+function setupInterval (callback, interval, name) {
+  var key = '_timeInMs_' + (name || '');
+  var now = Date.now();
+  var timeInMs = localStorage.getItem(key);
+  var executeCallback = function () {
+    localStorage.setItem(key, Date.now());
+    callback();
+  }
+  if (timeInMs) { // User has visited
+    var time = parseInt(timeInMs);
+    var delta = now - time;
+    if (delta > interval) { // User has been away longer than interval
+      setInterval(executeCallback, interval);
+    } else { // Execute callback when we reach the next interval
+      setTimeout(function () {
+        setInterval(executeCallback, interval);
+        executeCallback();
+      }, interval - delta);
+    }
+  } else {
+    setInterval(executeCallback, interval);
+  }
+  localStorage.setItem(key, now);
+}
 
-// setupInterval(function () {
-//   alert("one hour done!"); // function is called here
-// }, 10000);
+setupInterval(function () {
+  alert("one hour done!"); // function is called here
+}, 3600000);
 
 localStorage.removeItem("key");
 
