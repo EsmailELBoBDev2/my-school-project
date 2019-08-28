@@ -1,4 +1,4 @@
-window.onbeforeunload = function() {
+window.onbeforeunload = function () {
   return "Are you sure? The Time Will Not Work If You Reloaded The Page Several Times!";
 };
 
@@ -31,22 +31,22 @@ function gotData(data) {
   var keys = Object.keys(MedicalData);
   for (var i = 0; i < keys.length; i++) {
     var k = keys[i];
-  // var encryptPassword = "lol";
+    // var encryptPassword = "lol";
     var decryptedName = CryptoJS.AES.decrypt(MedicalData[k].Name, "lol1").toString(CryptoJS.enc.Utf8);
     var decryptedMedicName = CryptoJS.AES.decrypt(MedicalData[k].MedicName, "lol2").toString(CryptoJS.enc.Utf8);
     var decryptedMedicTime = CryptoJS.AES.decrypt(MedicalData[k].MedicTime, "lol3").toString(CryptoJS.enc.Utf8);
     var decryptedNotes = CryptoJS.AES.decrypt(MedicalData[k].Notes, "lol4").toString(CryptoJS.enc.Utf8);
 
     var li = document.createElement('li');
-    li.innerHTML = "Name: " + decryptedName + " Medic Name: " + decryptedMedicName + " Medic Time: " + decryptedMedicTime + " Notes:" + decryptedNotes;
+    li.innerHTML = "Name: " + decryptedName + " Medic Name: " + decryptedMedicName + " Medic Time: " + decryptedMedicTime + " Notes: " + decryptedNotes;
     li.setAttribute("class", "datalisting");
     document.getElementById("datalist").appendChild(li);
-}
+  }
 }
 
 // */> ITS FOR TESTING SO YEAH THIS PART CAN BE CHANGED ANY TIME!  <\* //
 
-function setupInterval (callback, interval, name) {
+function setupInterval(callback, interval, name) {
   var key = '_timeInMs_' + (name || '');
   var now = Date.now();
   var timeInMs = localStorage.getItem(key);
@@ -72,6 +72,11 @@ function setupInterval (callback, interval, name) {
 }
 
 setupInterval(function () {
+  var date = new Date();
+  var currentHour = date.getHours();
+  if (currentHour == decryptedMedicTime ) {
+    alert("It's " + decryptedMedicName + " Time! " + "Please Give It To " + decryptedName + " & Your Notes Was: " + decryptedNotes)
+  }
   alert("one hour done!"); // function is called here
 }, 3600000);
 
@@ -86,7 +91,7 @@ document.getElementById("encrypt").addEventListener("click", function (event) {
   var MedicName = document.getElementById("medic-name");
   var MedicTime = document.getElementById("medic-time");
   var Notes = document.getElementById("notes");
-  
+
   // var encryptPassword = "lol";
   var encryptedName = CryptoJS.AES.encrypt(Name.value, "lol1");
   var encryptedMedicName = CryptoJS.AES.encrypt(MedicName.value, "lol2");
@@ -116,7 +121,12 @@ document.getElementById("encrypt").addEventListener("click", function (event) {
   document.getElementById("medic-time").disabled = false;
   document.getElementById("notes").disabled = false;
 
-alert("Data Sent!")
+  document.getElementById('name').value = ''
+  document.getElementById('medic-name').value = ''
+  document.getElementById('medic-time').value = ''
+  document.getElementById('notes').value = ''
+
+  alert("Data Sent!")
 
 });
 

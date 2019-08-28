@@ -1,0 +1,62 @@
+body {
+    background-color: rgb(40, 44, 52);
+    color: white;
+    
+}
+
+
+#email {
+    background-color: rgb(40, 44, 52);
+    color: white;
+    border-style: none;
+}
+
+#password {
+    background-color: rgb(40, 44, 52);
+    color: white;
+    border-style: none;
+}
+
+#login {
+    background-color: rgb(40, 44, 52);
+    color: white;
+    border-style: none;
+}
+
+#logout {
+    background-color: rgb(40, 44, 52);
+    border-style: none;
+    color: white;
+    border-style: none;
+}
+
+
+#name {
+    background-color: rgb(40, 44, 52);
+    border-style: none;
+    color: white;
+}
+
+#medic-name {
+    background-color: rgb(40, 44, 52);
+    border-style: none;
+    color: white;
+}
+
+#medic-time {
+    background-color: rgb(40, 44, 52);
+    border-style: none;
+    color: white;
+}
+
+#notes {
+    background-color: rgb(40, 44, 52);
+    border-style: none;
+    color: white;
+}
+
+#encrypt {
+    background-color: rgb(40, 44, 52);
+    border-style: none;
+    color: white;
+}
