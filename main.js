@@ -1,8 +1,3 @@
-window.onbeforeunload = function () {
-  return "Are you sure? The Time Will Not Work If You Reloaded The Page Several Times!";
-};
-
-
 var firebaseConfig = {
   apiKey: "AIzaSyAoS7gUbyUlUhf42zofuOfJM4cEphjnwV4",
   authDomain: "my-not-awesome-project-lol.firebaseapp.com",
@@ -14,12 +9,14 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
+window.onbeforeunload = function () {
+  return "Are you sure? The Time Will Not Work If You Reloaded The Page Several Times!";
+};
 
 var MedicalData = firebase.database().ref('Medical Data');
 
 var dataRef = firebase.database().ref("Medical Data");
 dataRef.on("value", gotData)
-
 
 function gotData(data) {
   var datalistings = document.querySelectorAll(".datalisting");
@@ -44,42 +41,41 @@ function gotData(data) {
   }
 
 
-// */> ITS FOR TESTING SO YEAH THIS PART CAN BE CHANGED ANY TIME!  <\* //
+  // */> It's still in beta, tho!<\* //
 
-function setupInterval(callback, interval, name) {
-  var key = '_timeInMs_' + (name || '');
-  var now = Date.now();
-  var timeInMs = localStorage.getItem(key);
-  var executeCallback = function () {
-    localStorage.setItem(key, Date.now());
-    callback();
-  }
-  if (timeInMs) { // User has visited
-    var time = parseInt(timeInMs);
-    var delta = now - time;
-    if (delta > interval) { // User has been away longer than interval
-      setInterval(executeCallback, interval);
-    } else { // Execute callback when we reach the next interval
-      setTimeout(function () {
-        setInterval(executeCallback, interval);
-        executeCallback();
-      }, interval - delta);
+  function setupInterval(callback, interval, name) {
+    var key = '_timeInMs_' + (name || '');
+    var now = Date.now();
+    var timeInMs = localStorage.getItem(key);
+    var executeCallback = function () {
+      localStorage.setItem(key, Date.now());
+      callback();
     }
-  } else {
-    setInterval(executeCallback, interval);
+    if (timeInMs) { // User has visited
+      var time = parseInt(timeInMs);
+      var delta = now - time;
+      if (delta > interval) { // User has been away longer than interval
+        setInterval(executeCallback, interval);
+      } else { // Execute callback when we reach the next interval
+        setTimeout(function () {
+          setInterval(executeCallback, interval);
+          executeCallback();
+        }, interval - delta);
+      }
+    } else {
+      setInterval(executeCallback, interval);
+    }
+    localStorage.setItem(key, now);
   }
-  localStorage.setItem(key, now);
-}
 
-setupInterval(function () {
-  var date = new Date();
-  var currentHour = date.getHours();
-  if (currentHour == decryptedMedicTime ) {
-    alert("It's " + decryptedMedicName + " Time! " + "Please Give It To " + decryptedName + " & Your Notes Was: " + decryptedNotes)
-  }
-}, 5000);
-// 3600000
-// localStorage.removeItem("key");
+  setupInterval(function () {
+    var date = new Date();
+    var currentHour = date.getHours();
+    if (currentHour == decryptedMedicTime) {
+      alert("It's " + decryptedMedicName + " Time! " + "Please Give It To " + decryptedName + " & Your Notes Was: " + decryptedNotes)
+    }
+  }, 3600000);
+  // localStorage.removeItem("key");
 }
 
 
