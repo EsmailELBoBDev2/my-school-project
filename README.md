@@ -1,1 +1,2 @@
-I re-building the project in case you are saying "*WTF, What Happened To The Old Files ?*" 
+Well, the website/app working now but it's in beta because of course everyapp or anything started had some problems at launch
+so yeah, feel free now to help me by add new ideas or fix my old codes or even help me in design xD

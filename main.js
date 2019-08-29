@@ -71,8 +71,12 @@ function gotData(data) {
   setupInterval(function () {
     var date = new Date();
     var currentHour = date.getHours();
+    var alarm = new Audio('alarm.mp3');
     if (currentHour == decryptedMedicTime) {
+      alarm.play();
+      alarm.loop = true;
       alert("It's " + decryptedMedicName + " Time! " + "Please Give It To " + decryptedName + " & Your Notes Was: " + decryptedNotes)
+      alarm.stop();
     }
   }, 3600000);
   // localStorage.removeItem("key");
@@ -160,4 +164,10 @@ function login() {
 
 function logout() {
   firebase.auth().signOut();
+}
+
+function deleteLocalStorage() {
+  alert("If you got problems with timer such as not ring at right time you can delete the local storage & open the website again at the right time! (it's like if you want the website ring at 12:00 you need to open it at 11:00 & it will keep rin at same minute everytime)");
+   localStorage.removeItem("key");
+   alert("Removed, done...do not forget to open the website at the right time!");
 }
