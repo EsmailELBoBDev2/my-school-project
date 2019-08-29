@@ -167,7 +167,7 @@ function logout() {
 }
 
 function deleteLocalStorage() {
-  alert("If you got problems with timer such as not ring at right time you can delete the local storage & open the website again at the right time! (it's like if you want the website ring at 12:00 you need to open it at 11:00 & it will keep rin at same minute everytime)");
+  alert("If you got problems with timer such as not ring at right time you can delete the local storage & open the website again at the right time! (it's like if you want the website ring at 12:00 you need to open it at 11:00 & it will keep ring at same style everytime)");
    localStorage.removeItem("key");
    alert("Removed, done...do not forget to open the website at the right time!");
 }
