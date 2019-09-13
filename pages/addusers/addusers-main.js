@@ -35,7 +35,7 @@ function gotData(data) {
     var decryptedNotes = CryptoJS.AES.decrypt(MedicalData[k].Notes, "lol4").toString(CryptoJS.enc.Utf8);
 
     var li = document.createElement('li');
-    li.innerHTML = "Name: " + decryptedName + " Medic Name: " + decryptedMedicName + " Medic Time: " + decryptedMedicTime + " Notes: " + decryptedNotes;
+    li.innerHTML = "Name: " + decryptedName  + " • " + "Medic Name: " + decryptedMedicName + "<br>" + "Time: " + decryptedMedicTime + " • " + "Notes: " + decryptedNotes + "<br> <br>";
     li.setAttribute("class", "datalisting");
     document.getElementById("datalist").appendChild(li);
   }
